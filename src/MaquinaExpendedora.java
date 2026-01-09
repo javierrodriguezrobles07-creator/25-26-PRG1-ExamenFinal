@@ -4,19 +4,19 @@ public class MaquinaExpendedora {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
-        // Productos
-        String[] prods = {"Coca-Cola", "Chips", "Chocolate", "Agua"};
-        double[] precios = {1.50, 1.00, 1.25, 0.75};
+               // Constantes
+        final double SALDO_MAX = 5.0;
+        final double[] MONEDAS = {0.05, 0.10, 0.20, 0.50, 1.0, 2.0};
+        
+        // Datos de productos
+        String[] PRODUCTOS = {"Coca-Cola", "Chips", "Chocolate", "Agua"};
+        double[] PRECIOS = {1.50, 1.00, 1.25, 0.75};
         int[] stock = {10, 8, 12, 15};
         
         double saldo = 0.0;
-        double max_saldo_maq = 5.0; // Saldo max
-        
-        // Monedas
-        double[] mon_val = {0.10, 0.20, 0.50, 1.0, 2.0};
         
         System.out.println("Maquina Expendedora v1.0");
-        
+
         while (true) {
             System.out.println(); // Separador
             System.out.println("Productos Disponibles");
