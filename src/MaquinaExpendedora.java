@@ -25,10 +25,10 @@ public class MaquinaExpendedora {
             }
             System.out.println(); // Separador
             
-            System.out.println("Saldo actual: " + ((int) saldo * 100) / 100 + " euros (Max. " + SALDO_MAX + "eur)");
+            System.out.println("Saldo actual: "+ ((int) saldo * 100) / 100 + " euros (Max. " + SALDO_MAX + "euro)");
             System.out.print("[1] Insertar moneda (Validas: ");
             for(int i = 0; i < MONEDAS.length; i++) {
-                System.out.print(MONEDAS[i] + " ");
+                System.out.print(MONEDAS[i] + " euros ");
             }
             System.out.println(")");
             System.out.println("[2] Seleccionar producto");
@@ -55,4 +55,60 @@ public class MaquinaExpendedora {
         }
         sc.close();
     }
+}
+    private static double insertarMoneda(Scanner sc, double saldo, 
+                                        double[] monedas, double saldoMax) {
+        System.out.print("Introduce moneda: ");
+        double m = sc.nextDouble();
+        
+        boolean valida = false;
+        for (double moneda : monedas) {
+            if (Math.abs(moneda - m) < 0.001) {
+                valida = true;
+                break;
+            }
+        }
+        
+        if (!valida) {
+            System.out.printf("Moneda no válida. Se devuelve %.2f€\n", m);
+            return saldo;
+        }
+        
+        if (saldo + m > saldoMax) {
+            System.out.printf("Límite de %.2f€ excedido. Se devuelve %.2f€\n", saldoMax, m);
+            return saldo;
+        }
+        
+        saldo += m;
+        System.out.println("Moneda aceptada.");
+        return saldo;
+    }
+    
+  
+    private static double comprarProducto(Scanner sc, double saldo, 
+                                         String[] productos, double[] precios, int[] stock) {
+        System.out.print("Seleccione producto (1-" + productos.length + "): ");
+        int opcion = sc.nextInt() - 1;
+        
+        if (opcion < 0 || opcion >= productos.length) {
+            System.out.println("Producto no válido.");
+            return saldo;
+        }
+        
+        if (stock[opcion] <= 0) {
+            System.out.println("Producto agotado.");
+            return saldo;
+        }
+        
+        if (saldo < precios[opcion]) {
+            System.out.printf("Saldo insuficiente. Necesitas %.2f€\n", precios[opcion]);
+            return saldo;
+        }
+        
+        stock[opcion]--;
+        saldo -= precios[opcion];
+        System.out.println("¡Disfruta tu " + productos[opcion] + "!");
+        return saldo;
+    }
+    
 }
