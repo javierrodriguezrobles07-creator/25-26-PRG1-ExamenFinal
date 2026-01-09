@@ -20,9 +20,8 @@ public class MaquinaExpendedora {
         while (true) {
             System.out.println(); // Separador
             System.out.println("Productos Disponibles");
-            for (int i = 0; i < prods.length; i++) {
-                System.out.println((i + 1) + ". " + prods[i] + " | Precio: " + precios[i] + "eur | Stock: " + stock[i]);
-            }
+            for (int i = 0; i < PRODUCTOS.length; i++) {
+                     System.out.println((i + 1) + ". " + PRODUCTOS[i] + " | Precio: " + PRECIOS[i] + "€ | Stock: " + stock[i]);
             
             System.out.println(); // Separador
             
@@ -91,8 +90,6 @@ public class MaquinaExpendedora {
     System.out.println("¡Disfruta tu " + productos[opcion] + "!");
     return saldo;
 }
-
-
 
             } else if (opt == 3) {
                 if (saldo > 0) {
