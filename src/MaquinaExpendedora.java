@@ -110,5 +110,3 @@ public class MaquinaExpendedora {
         System.out.println("¡Disfruta tu " + productos[opcion] + "!");
         return saldo;
     }
-    
-}
