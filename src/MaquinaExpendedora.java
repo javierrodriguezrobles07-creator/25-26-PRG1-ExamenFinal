@@ -25,7 +25,7 @@ public class MaquinaExpendedora {
             }
             System.out.println(); // Separador
             
-            System.out.println("Saldo actual: "+ ((int) saldo * 100) / 100 + " euros (Max. " + SALDO_MAX + "euro)");
+            System.out.printf("Saldo actual: %.2f€ (Máx: %.2f€)\n", saldo, SALDO_MAX);
             System.out.print("[1] Insertar moneda (Validas: ");
             for(int i = 0; i < MONEDAS.length; i++) {
                 System.out.print(MONEDAS[i] + " euros ");
