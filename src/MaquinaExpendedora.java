@@ -48,7 +48,7 @@ public class MaquinaExpendedora {
                     }
                 }
                 
-                if (m_valida) {
+             if (monedaValida(m, MONEDAS)) {{
                     if (saldo + m > max_saldo_maq) {
                         System.out.println("ERROR: La maquina no acepta mas de " + max_saldo_maq + " euros. Se devuelve " + m + " euros.");
                     } else {
