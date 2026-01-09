@@ -28,7 +28,7 @@ public class MaquinaExpendedora {
             System.out.println("Saldo actual: " + ((int) saldo * 100) / 100 + " euros (Max. " + SALDO_MAX + "eur)");
             System.out.print("[1] Insertar moneda (Validas: ");
             for(int i = 0; i < MONEDAS.length; i++) {
-                System.out.print(mon_val[i] + " ");
+                System.out.print(MONEDAS[i] + " ");
             }
             System.out.println(")");
             System.out.println("[2] Seleccionar producto");
@@ -61,23 +61,6 @@ public class MaquinaExpendedora {
         System.out.printf("Límite de %.2f€ excedido. Se devuelve %.2f€\n", saldoMax, m);
         return saldo;
     }
-    
-    saldo += m;
-    System.out.println("Moneda aceptada.");
-    return saldo;
-}
-            } else if (opt == 2) {
-                saldo = comprarProducto(sc, saldo, PRODUCTOS, PRECIOS, stock);
-            private static double comprarProducto(Scanner sc, double saldo, 
-                                     String[] productos, double[] precios, int[] stock) {
-    System.out.print("Seleccione producto (1-" + productos.length + "): ");
-    int opcion = sc.nextInt() - 1;
-    
-    if (opcion < 0 || opcion >= PRODUCTOS.length) {
-        System.out.println("Producto no válido.");
-        return saldo;
-    }
-    
     if (stock[opcion] <= 0) {
         System.out.println("Producto agotado.");
         return saldo;
