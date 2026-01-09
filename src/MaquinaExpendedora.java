@@ -27,7 +27,7 @@ public class MaquinaExpendedora {
             
             System.out.println("Saldo actual: " + ((int) saldo * 100) / 100 + " euros (Max. " + max_saldo_maq + "eur)");
             System.out.print("[1] Insertar moneda (Validas: ");
-            for(int i = 0; i < mon_val.length; i++) {
+            for(int i = 0; i < MONEDAS.length; i++) {
                 System.out.print(mon_val[i] + " ");
             }
             System.out.println(")");
@@ -36,10 +36,13 @@ public class MaquinaExpendedora {
             System.out.print("Opcion: ");
             int opt = sc.nextInt();
             
-            private static double insertarMoneda(Scanner sc, double saldo, 
-                                    double[] monedas, double saldoMax) {
-               System.out.print("Introduce moneda: ");
-                 double m = sc.nextDouble();
+            if (opt == 1) {
+                 saldo = insertarMoneda(sc, saldo, MONEDAS, SALDO_MAX);
+            } 
+            else if (opt == 2) {
+                 saldo = comprarProducto(sc, saldo, PRODUCTOS, PRECIOS, stock);
+                     System.out.print("Introduce moneda: ");
+                       double m = sc.nextDouble();
     
              boolean valida = false;
             for (double moneda : monedas) {
