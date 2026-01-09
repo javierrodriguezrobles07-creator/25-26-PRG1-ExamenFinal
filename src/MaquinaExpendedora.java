@@ -41,43 +41,9 @@ public class MaquinaExpendedora {
             } 
             else if (opt == 2) {
                  saldo = comprarProducto(sc, saldo, PRODUCTOS, PRECIOS, stock);
-                     System.out.print("Introduce moneda: ");
-                       double m = sc.nextDouble();
-    
-             boolean valida = false;
-            for (double moneda : monedas) {
-            if (Math.abs(moneda - m) < 0.001) {
-            valida = true;
-            break;
-        }
-    }
-    
-             if (!valida) {
-                  System.out.printf("Moneda no válida. Se devuelve %.2f€\n", m);
-           return saldo;
-    }
-    
-    if (saldo + m > saldoMax) {
-        System.out.printf("Límite de %.2f€ excedido. Se devuelve %.2f€\n", saldoMax, m);
-        return saldo;
-    }
-    if (stock[opcion] <= 0) {
-        System.out.println("Producto agotado.");
-        return saldo;
-    }
-    
-    if (saldo < precios[opcion]) {
-        System.out.printf("Saldo insuficiente. Necesitas %.2f€\n", precios[opcion]);
-        return saldo;
-    }
-    
-    stock[opcion]--;
-    saldo -= precios[opcion];
-    System.out.println("¡Disfruta tu " + productos[opcion] + "!");
-    return saldo;
-}
-
-} else if (opt == 3) {
+        
+            }
+            else if (opt == 3) {
                 if (saldo > 0) {
                     System.out.println("No olvides recoger tu cambio: " + ((int) saldo * 100) / 100 + " euros.");
                 }
